@@ -1,0 +1,25 @@
+<h1>Movies#index</h1>
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:keyword, "Search for:") %>
+  <%= text_field_tag(:keyword) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @results  %>
+<ul>
+<% @results.each do |movie|  %>
+<li>
+<h3>
+<%= movie["Title"] %>    --------    <%= movie["Year"] %>
+</h3>
+</li>
+
+
+<% end  %>
+
+  
+
+</ul>
+<% end  %>
